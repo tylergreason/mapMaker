@@ -1,7 +1,7 @@
 console.log('hello, world')
 
 // create function to create x by y room 
-const createRoom = (width, height=width, glyph='0') => {
+const createRoom = (glyph = "0", height, width=height) => {
     // let width = dx(size)+10; 
     // let height = dx(size)+10; 
 
@@ -9,9 +9,9 @@ const createRoom = (width, height=width, glyph='0') => {
     // let height = 15; 
     // create array 
     let room = [];
-    for (let i = 0; i < width; i++){
+    for (let i = 0; i < height; i++){
         room.push([])
-        for (let j = 0; j < height; j++){
+        for (let j = 0; j < width; j++){
             room[i].push([glyph])
         }
     }
@@ -19,7 +19,7 @@ const createRoom = (width, height=width, glyph='0') => {
 }
 
 // use static sized level for now 
-const level = createRoom(5); 
+const level = createRoom("0", 5); 
 console.log(level)
 
 const displayRoom = array => {
@@ -30,6 +30,7 @@ const displayRoom = array => {
         line.forEach(ele => string += ele);
         returnString += string + "\n"
     })
+    map.innerText = returnString; 
     console.log(returnString)
 }
 
