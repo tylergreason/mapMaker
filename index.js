@@ -19,7 +19,7 @@ const createRoom = (glyph = "0", height, width=height) => {
 }
 
 // use static sized level for now 
-const level = createRoom("0", 5); 
+const level = createRoom("0", 25); 
 console.log(level)
 
 const displayRoom = array => {
@@ -34,5 +34,23 @@ const displayRoom = array => {
     console.log(returnString)
 }
 
+const createRoomElement = array => {
+    let room = document.createElement('div'); 
+    room.classList.add('room'); 
+
+    array.forEach(y => {
+        let newRow = document.createElement('div'); 
+        y.forEach(x => {
+            let cell = document.createElement('span'); 
+            cell.classList.add('cell'); 
+            cell.innerText = x; 
+            newRow.appendChild(cell);
+        })
+        room.appendChild(newRow); 
+    })
+    document.body.appendChild(room); 
+}
+
 level[3][0] = "d"
+createRoomElement(level)
 displayRoom(level)
