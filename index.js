@@ -41,7 +41,7 @@ const createRoomElement = array => {
     array.forEach(y => {
         let newRow = document.createElement('div'); 
         y.forEach(x => {
-            let cell = document.createElement('span'); 
+            let cell = document.createElement('div'); 
             cell.classList.add('cell'); 
             cell.innerText = x; 
             newRow.appendChild(cell);
