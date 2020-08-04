@@ -80,9 +80,10 @@ const appendRoomToLevel = (room, level, y, x) => {
 // apply glyph style to cell div 
 const applyStyles = (glyph, cell) => {
     let styles = glyph.styles; 
+    //remove old inline styles 
+    cell.style = "";
     // iterate through styles and apply them to cell style 
     Object.keys(styles).forEach(property => {
-        // console.log(property)
         cell.style[property] = styles[property]
     })
 }
@@ -93,6 +94,7 @@ level[0][0] = tree.glyph;
 // createRoomElement(level)
 
 let newLevel = createLevel(level);
-let newRoom = createRoom(dirt, 5);
+let newRoom = createRoom(water, 5);
 appendRoomToLevel(newRoom, newLevel, 1,1); 
+appendRoomToLevel(createRoom(tree, 10), newLevel, 5,5)
 document.body.appendChild(newLevel)

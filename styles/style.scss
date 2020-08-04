@@ -28,9 +28,11 @@ body {
     height: $cellDimensions; 
     display: inline-block;
     text-align: center;    
+    vertical-align: middle;
     margin: 0px; 
     border: 1px dotted black; 
     box-sizing: border-box;
+    font-size: $cellDimensions * 0.8;
 }
 
 .row {

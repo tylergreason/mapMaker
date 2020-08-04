@@ -1,8 +1,9 @@
 let tree = {
     text: "t",
     styles: {
-        color: 'green', 
-        backgroundColor: 'purple'
+        color: 'lightgreen', 
+        backgroundColor: 'green', 
+        fontWeight: 'bold',
     }
 }
 
@@ -11,5 +12,14 @@ let dirt = {
     styles: {
         backgroundColor: "brown",
         border: 'none'
+    }
+}
+
+let water = {
+    text: "w",
+    styles: {
+        backgroundColor: 'lightblue', 
+        color: 'blue',
+        fontStyle: "italic"
     }
 }
