@@ -1,12 +1,7 @@
 console.log('hello, world')
 
 // create function to create x by y room 
-const createRoom = (glyph = "0", height, width=height) => {
-    // let width = dx(size)+10; 
-    // let height = dx(size)+10; 
-
-    // let width = 10; 
-    // let height = 15; 
+const createRoom = (glyph, height, width=height) => {
     // create array 
     let room = [];
     for (let i = 0; i < height; i++){
@@ -51,6 +46,40 @@ const createRoomElement = array => {
     document.body.appendChild(room); 
 }
 
+// make function to create a level, which is  a grid of divs 
+const createLevel = array => {
+    let level = document.createElement('div'); 
+    level.classList.add('level'); 
+
+    array.forEach(y => {
+        let row = document.createElement('div'); 
+        y.forEach(x => {
+            let cell = document.createElement('div'); 
+            cell.classList.add('cell');
+            row.appendChild(cell); 
+        })
+        level.appendChild(row); 
+    })
+    return level; 
+}
+
+// create function to show a room on a level by changing the styles of the elements on that level 
+const appendRoomToLevel = (room, level, y, x) => {
+    // loop through room height and width
+    for (let h = 0; h < room.length; h++){
+        for (let w = 0; w < room[h].length; w++){
+            level[h+y][x+w].innerText = room[h][w].glyph
+            // call function here for setting the cell's style with the style property of this room cell's object 
+        }
+    }
+}
+
 level[3][0] = "d"
+level[0][0] = tree.glyph;
+level[0][0].style = tree.style; 
 createRoomElement(level)
-displayRoom(level)
+
+let newLevel = createLevel(level);
+let newRoom = createRoom(tree, 5);
+appendRoomToLevel(newRoom, newLevel, 0,0); 
+document.body.appendChild(newLevel)
