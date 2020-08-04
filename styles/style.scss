@@ -1,7 +1,8 @@
 @import 'mixins';
+$cellDimensions: 20px; 
 
 body {
-    margin: 0px; 
+    margin: 10px; 
     background-color: grey;;
 }
 
@@ -22,16 +23,24 @@ body {
 
 }
 
-.cell {
-    $cellDimensions: 20px; 
+.cell { 
     width: $cellDimensions; 
     height: $cellDimensions; 
     display: inline-block;
     text-align: center;    
-    margin: auto; 
-    border: 1px solid black; 
+    margin: 0px; 
+    border: 1px dotted black; 
+    box-sizing: border-box;
+}
+
+.row {
+    margin: 0px; 
+    padding: 0px; 
+    height: $cellDimensions;
 }
 
 .level {
     border: 2px solid black;
+    min-width: $cellDimensions * 25;
+    @include center();
 }

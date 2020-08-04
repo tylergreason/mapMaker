@@ -1,5 +1,5 @@
 body {
-  margin: 0px;
+  margin: 10px;
   background-color: grey;
 }
 
@@ -26,11 +26,25 @@ body {
   height: 20px;
   display: inline-block;
   text-align: center;
-  margin: auto;
-  border: 1px solid black;
+  margin: 0px;
+  border: 1px dotted black;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.row {
+  margin: 0px;
+  padding: 0px;
+  height: 20px;
 }
 
 .level {
   border: 2px solid black;
+  min-width: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 /*# sourceMappingURL=style.css.map */

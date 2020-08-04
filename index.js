@@ -51,6 +51,7 @@ const createLevel = array => {
 
     array.forEach(y => {
         let row = document.createElement('div'); 
+        row.classList.add('row')
         y.forEach(x => {
             let cell = document.createElement('div'); 
             cell.classList.add('cell');
@@ -78,7 +79,6 @@ const appendRoomToLevel = (room, level, y, x) => {
 
 // apply glyph style to cell div 
 const applyStyles = (glyph, cell) => {
-    console.log(glyph)
     let styles = glyph.styles; 
     // iterate through styles and apply them to cell style 
     Object.keys(styles).forEach(property => {
@@ -93,6 +93,6 @@ level[0][0] = tree.glyph;
 // createRoomElement(level)
 
 let newLevel = createLevel(level);
-let newRoom = createRoom(tree, 5);
+let newRoom = createRoom(dirt, 5);
 appendRoomToLevel(newRoom, newLevel, 1,1); 
 document.body.appendChild(newLevel)

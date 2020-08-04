@@ -5,3 +5,11 @@ let tree = {
         backgroundColor: 'purple'
     }
 }
+
+let dirt = {
+    text: "",
+    styles: {
+        backgroundColor: "brown",
+        border: 'none'
+    }
+}
