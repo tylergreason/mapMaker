@@ -1,5 +1,3 @@
-console.log('hello, world')
-
 // create function to create x by y room 
 const createRoom = (glyph, height, width=height) => {
     // create array 
@@ -15,7 +13,7 @@ const createRoom = (glyph, height, width=height) => {
 
 // use static sized level for now 
 const level = createRoom("0", 25); 
-console.log(level)
+// console.log(level)
 
 const displayRoom = array => {
     let returnString = ''; 
@@ -68,15 +66,30 @@ const appendRoomToLevel = (room, level, y, x) => {
     // loop through room height and width
     for (let h = 0; h < room.length; h++){
         for (let w = 0; w < room[h].length; w++){
-            level.children[h+y].children[x+w].innerText = room[h][w].glyph
+            let cell = level.children[h+y].children[x+w];
+            let glyph = room[h][w]; 
+            cell.innerText = glyph.text
+            applyStyles(glyph, cell); 
+
             // call function here for setting the cell's style with the style property of this room cell's object 
         }
     }
 }
 
+// apply glyph style to cell div 
+const applyStyles = (glyph, cell) => {
+    console.log(glyph)
+    let styles = glyph.styles; 
+    // iterate through styles and apply them to cell style 
+    Object.keys(styles).forEach(property => {
+        // console.log(property)
+        cell.style[property] = styles[property]
+    })
+}
+
 level[3][0] = "d"
 level[0][0] = tree.glyph;
-level[0][0].style = tree.style; 
+// level[0][0].style = tree.style; 
 // createRoomElement(level)
 
 let newLevel = createLevel(level);

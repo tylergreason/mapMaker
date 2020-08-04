@@ -1,6 +1,7 @@
 let tree = {
-    glyph: "t",
-    style: {
+    text: "t",
+    styles: {
         color: 'green', 
+        backgroundColor: 'purple'
     }
 }
