@@ -94,7 +94,16 @@ level[0][0] = tree.glyph;
 // createRoomElement(level)
 
 let newLevel = createLevel(level);
-let newRoom = createRoom(water, 5);
-appendRoomToLevel(newRoom, newLevel, 1,1); 
+appendRoomToLevel(createRoom(dirt, 25), newLevel, 0,0)
+for (let i = 0; i < 10; i++){
+    let roomSize = Math.floor(Math.random()*10)+5; 
+    let newRoom = createRoom(tree, roomSize);
+    let locationX = Math.floor(Math.random()*(25-roomSize)); 
+    let locationY = Math.floor(Math.random()*(25-roomSize)); 
+    console.log(`${locationX} ${locationY}`)
+    appendRoomToLevel(newRoom, newLevel, locationX, locationY); 
+}
+appendRoomToLevel(createRoom(water, 5), newLevel, 1,1); 
 appendRoomToLevel(createRoom(tree, 10), newLevel, 5,5)
+
 document.body.appendChild(newLevel)

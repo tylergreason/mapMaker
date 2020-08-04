@@ -10,8 +10,8 @@ let tree = {
 let dirt = {
     text: "",
     styles: {
-        backgroundColor: "brown",
-        border: 'none'
+        backgroundColor: `rgb(100,50,0)`,
+        // border: 'none'
     }
 }
 
