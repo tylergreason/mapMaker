@@ -7,7 +7,7 @@ const createRoom = (glyph, height, width=height) => {
     for (let i = 0; i < height; i++){
         room.push([])
         for (let j = 0; j < width; j++){
-            room[i].push([glyph])
+            room[i].push(glyph)
         }
     }
     return room; 
@@ -68,7 +68,7 @@ const appendRoomToLevel = (room, level, y, x) => {
     // loop through room height and width
     for (let h = 0; h < room.length; h++){
         for (let w = 0; w < room[h].length; w++){
-            level[h+y][x+w].innerText = room[h][w].glyph
+            level.children[h+y].children[x+w].innerText = room[h][w].glyph
             // call function here for setting the cell's style with the style property of this room cell's object 
         }
     }
@@ -77,9 +77,9 @@ const appendRoomToLevel = (room, level, y, x) => {
 level[3][0] = "d"
 level[0][0] = tree.glyph;
 level[0][0].style = tree.style; 
-createRoomElement(level)
+// createRoomElement(level)
 
 let newLevel = createLevel(level);
 let newRoom = createRoom(tree, 5);
-appendRoomToLevel(newRoom, newLevel, 0,0); 
+appendRoomToLevel(newRoom, newLevel, 1,1); 
 document.body.appendChild(newLevel)

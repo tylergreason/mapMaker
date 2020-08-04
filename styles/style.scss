@@ -23,8 +23,9 @@ body {
 }
 
 .cell {
-    width: 20px; 
-    height: 20px; 
+    $cellDimensions: 20px; 
+    width: $cellDimensions; 
+    height: $cellDimensions; 
     display: inline-block;
     text-align: center;    
     margin: auto; 
