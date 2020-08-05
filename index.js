@@ -11,10 +11,6 @@ const createRoom = (glyph, height, width=height) => {
     return room; 
 }
 
-// use static sized level for now 
-const level = createRoom("0", 25); 
-// console.log(level)
-
 const displayRoom = array => {
     let returnString = ''; 
     // loop through length of array and print each line 
@@ -27,38 +23,20 @@ const displayRoom = array => {
     console.log(returnString)
 }
 
-const createRoomElement = array => {
-    let room = document.createElement('div'); 
-    room.classList.add('room'); 
-
-    array.forEach(y => {
-        let newRow = document.createElement('div'); 
-        y.forEach(x => {
-            let cell = document.createElement('div'); 
-            cell.classList.add('cell'); 
-            cell.innerText = x; 
-            newRow.appendChild(cell);
-        })
-        room.appendChild(newRow); 
-    })
-    document.body.appendChild(room); 
-}
-
 // make function to create a level, which is  a grid of divs 
-const createLevel = array => {
+const createLevel = (height, width=height) => {
     let level = document.createElement('div'); 
-    level.classList.add('level'); 
-
-    array.forEach(y => {
+    level.classList.add('level');  
+    for (let i = 0; i < height; i++){
         let row = document.createElement('div'); 
         row.classList.add('row')
-        y.forEach(x => {
+        for (let j = 0; j < width; j++){
             let cell = document.createElement('div'); 
             cell.classList.add('cell');
             row.appendChild(cell); 
-        })
+        }
         level.appendChild(row); 
-    })
+    }
     return level; 
 }
 
@@ -71,8 +49,6 @@ const appendRoomToLevel = (room, level, y, x) => {
             let glyph = room[h][w]; 
             cell.innerText = glyph.text
             applyStyles(glyph, cell); 
-
-            // call function here for setting the cell's style with the style property of this room cell's object 
         }
     }
 }
@@ -88,12 +64,7 @@ const applyStyles = (glyph, cell) => {
     })
 }
 
-level[3][0] = "d"
-level[0][0] = tree.glyph;
-// level[0][0].style = tree.style; 
-// createRoomElement(level)
-
-let newLevel = createLevel(level);
+let newLevel = createLevel(25);
 appendRoomToLevel(createRoom(dirt, 25), newLevel, 0,0)
 for (let i = 0; i < 10; i++){
     let roomSize = Math.floor(Math.random()*10)+5; 
