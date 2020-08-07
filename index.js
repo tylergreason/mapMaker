@@ -10,6 +10,7 @@ const createRoom = (glyph, height, width=height) => {
     }
     return room; 
 }
+
 // make function to create a level, which is  a grid of divs 
 const createLevel = (height, width=height) => {
     // let level = document.createElement('div'); 
@@ -30,6 +31,21 @@ const createLevel = (height, width=height) => {
     return level; 
 }
 
+// function to append level elements to document body 
+const appendLevelToDoc = (level, target) => {
+    // iterate through elements of the level and append them to the target element 
+    level.forEach(levelRow => {
+        // create row element to hold cells 
+        let row = document.createElement('div'); 
+        levelRow.forEach(cell => {
+            row.appendChild(cell); 
+        })
+        // append row to target 
+        target.appendChild(row); 
+    })
+}
+
+
 // create function to show a room on a level by changing the styles of the elements on that level 
 const appendRoomToLevel = (room, level, y, x) => {
     // loop through room height and width
@@ -45,6 +61,7 @@ const appendRoomToLevel = (room, level, y, x) => {
     }
 }
 
+
 // apply glyph style to cell div 
 const applyStyles = (glyph, cell) => {
     let styles = glyph.styles; 
@@ -57,6 +74,8 @@ const applyStyles = (glyph, cell) => {
 }
 
 let newLevel = createLevel(25);
+appendLevelToDoc(newLevel, document.body)
+
 appendRoomToLevel(createRoom(dirt, 25), newLevel, 0,0)
 for (let i = 0; i < 10; i++){
     let roomSize = Math.floor(Math.random()*10)+5; 
@@ -69,6 +88,5 @@ for (let i = 0; i < 10; i++){
 appendRoomToLevel(createRoom(water, 5), newLevel, 1,1); 
 appendRoomToLevel(createRoom(tree, 10), newLevel, 5,5)
 
-document.body.appendChild(newLevel)
 
 fillWithGlyph(newLevel, water)
