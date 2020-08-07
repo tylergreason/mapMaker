@@ -36,7 +36,8 @@ const appendLevelToDoc = (level, target) => {
     // iterate through elements of the level and append them to the target element 
     level.forEach(levelRow => {
         // create row element to hold cells 
-        let row = document.createElement('div'); 
+        let row = document.createElement('div');
+        row.classList.add('row')
         levelRow.forEach(cell => {
             row.appendChild(cell); 
         })
@@ -60,33 +61,3 @@ const appendRoomToLevel = (room, level, y, x) => {
         }
     }
 }
-
-
-// apply glyph style to cell div 
-const applyStyles = (glyph, cell) => {
-    let styles = glyph.styles; 
-    //remove old inline styles 
-    cell.style = "";
-    // iterate through styles and apply them to cell style 
-    Object.keys(styles).forEach(property => {
-        cell.style[property] = styles[property]
-    })
-}
-
-let newLevel = createLevel(25);
-appendLevelToDoc(newLevel, document.body)
-
-appendRoomToLevel(createRoom(dirt, 25), newLevel, 0,0)
-for (let i = 0; i < 10; i++){
-    let roomSize = Math.floor(Math.random()*10)+5; 
-    let newRoom = createRoom(tree, roomSize);
-    let locationX = Math.floor(Math.random()*(25-roomSize)); 
-    let locationY = Math.floor(Math.random()*(25-roomSize)); 
-    console.log(`${locationX} ${locationY}`)
-    appendRoomToLevel(newRoom, newLevel, locationX, locationY); 
-}
-appendRoomToLevel(createRoom(water, 5), newLevel, 1,1); 
-appendRoomToLevel(createRoom(tree, 10), newLevel, 5,5)
-
-
-fillWithGlyph(newLevel, water)

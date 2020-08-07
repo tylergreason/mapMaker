@@ -1,19 +1,11 @@
 body {
-  margin: 10px;
   background-color: grey;
 }
 
 #map {
-  font-size: 1.2em;
   line-height: 1.2;
   letter-spacing: 1.2em;
   background-color: pink;
-  width: auto;
-}
-
-.room {
-  background-color: darkred;
-  width: 80%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -28,7 +20,7 @@ body {
   text-align: center;
   vertical-align: middle;
   margin: 0px;
-  border: 1px dotted black;
+  padding: 0px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-size: 16px;
@@ -38,15 +30,5 @@ body {
   margin: 0px;
   padding: 0px;
   height: 20px;
-}
-
-.level {
-  border: 2px solid black;
-  min-width: 500px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
 }
 /*# sourceMappingURL=style.css.map */
