@@ -16,12 +16,14 @@ const createLevel = (height, width=height) => {
     let level = []; 
     // level.classList.add('level');  
     for (let i = 0; i < height; i++){
-        let row = document.createElement('div'); 
-        row.classList.add('row')
+        // create array to hold arrays of divs 
+        let row = []; 
+        // let row = document.createElement('div'); 
+        // row.classList.add('row')
         for (let j = 0; j < width; j++){
             let cell = document.createElement('div'); 
             cell.classList.add('cell');
-            row.appendChild(cell); 
+            row.push(cell); 
         }
         level.push(row); 
     }
@@ -34,7 +36,7 @@ const appendRoomToLevel = (room, level, y, x) => {
     for (let h = 0; h < room.length; h++){
         for (let w = 0; w < room[h].length; w++){
             let cell = level[h+y][x+w];
-            console.log(cell)
+            // console.log(cell)
             // let cell = level.children[h+y].children[x+w];
             let glyph = room[h][w]; 
             cell.innerText = glyph.text
