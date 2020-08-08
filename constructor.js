@@ -20,4 +20,11 @@ for (let i = 0; i < 10; i++){
 // test animations 
 
 // find water elements 
-let waterElements = newLevel.map(ele => ele.dataset.glyph  === 'water');
+let waterElements = []; 
+newLevel.forEach(row => {
+    row.forEach(ele => {
+        if (ele.dataset.glyph  === 'water') {waterElements.push(ele); }
+    })
+});
+
+// apply animations to water elements 
