@@ -19,4 +19,5 @@ const applyStyles = (glyph, cell) => {
     })
     // change cell inner text 
     cell.innerText = glyph.text;
+    cell.dataset.glyph = glyph.name; 
 }

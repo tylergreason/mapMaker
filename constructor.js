@@ -16,3 +16,8 @@ for (let i = 0; i < 10; i++){
     console.log(`${locationX} ${locationY}`)
     appendRoomToLevel(newRoom, newLevel, locationX, locationY); 
 }
+
+// test animations 
+
+// find water elements 
+let waterElements = newLevel.map(ele => ele.dataset.glyph  === 'water');
