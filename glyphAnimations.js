@@ -3,10 +3,12 @@
 // create keyframes 
 const waterKeyframes = [
     {
-        backgroundColor: "rgb(0,0,100)"
+        backgroundColor: "rgb(0,0,150)",
+        easing: 'ease'
     },
     {
-        backgroundColor: "rgb(0,0,255)"
+        backgroundColor: "rgb(0,0,220)",
+        easing: 'ease'
     }
 ]
 
