@@ -16,5 +16,3 @@ for (let i = 0; i < 10; i++){
     console.log(`${locationX} ${locationY}`)
     appendRoomToLevel(newRoom, newLevel, locationX, locationY); 
 }
-
-
