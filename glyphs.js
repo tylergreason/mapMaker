@@ -19,7 +19,7 @@ let dirt = {
 
 let water = {
     name: "water", 
-    text: "w",
+    text: "",
     styles: {
         backgroundColor: 'lightblue', 
         color: 'blue',

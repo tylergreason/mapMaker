@@ -3,20 +3,27 @@
 // create keyframes 
 const waterKeyframes = [
     {
-        backgroundColor: "rgb(0,0,200)"
+        backgroundColor: "rgb(0,0,100)"
     },
     {
         backgroundColor: "rgb(0,0,255)"
     }
 ]
 
-const waterAnimationOptions = {
-    duration: 500, 
-    iterations: Infinity
+// function to make a random time within a range for an animation duration
+const randomDuration = (minimum, maximum) => {
+    return (Math.random()* (maximum - minimum)) + minimum
+}
+
+
+const waterAnimationOptions = { 
+    iterations: Infinity, 
+    direction: 'alternate',
+    duration: 400
 } 
+
 
 // function to animate targeted element 
 const animateElement = (element, animation, timing) =>{
     element.animate(animation, timing); 
 }
-

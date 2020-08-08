@@ -13,7 +13,7 @@ for (let i = 0; i < 10; i++){
     let newRoom = createRoom(tree, roomSize);
     let locationX = Math.floor(Math.random()*(newLevel.length-roomSize)); 
     let locationY = Math.floor(Math.random()*(newLevel[0].length-roomSize)); 
-    console.log(`${locationX} ${locationY}`)
+    // console.log(`${locationX} ${locationY}`)
     appendRoomToLevel(newRoom, newLevel, locationX, locationY); 
 }
 
@@ -28,3 +28,8 @@ newLevel.forEach(row => {
 });
 
 // apply animations to water elements 
+waterElements.forEach(ele => {
+    waterAnimationOptions.duration = randomDuration(800,1000); 
+
+    animateElement(ele, waterKeyframes, waterAnimationOptions)
+})
