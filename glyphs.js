@@ -8,6 +8,15 @@ let tree = {
     }
 }
 
+let ridge = {
+    name: "ridge", 
+    text: "r", 
+    styles: {
+        color: "black", 
+        backgroundColor: "lightBrown",
+    }
+}
+
 let dirt = {
     name: "dirt", 
     text: "",

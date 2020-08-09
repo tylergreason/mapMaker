@@ -16,7 +16,7 @@ for (let i = 0; i < 10; i++){
     let locationX = Math.floor(Math.random()*(newLevel.length-roomSize)); 
     let locationY = Math.floor(Math.random()*(newLevel[0].length-roomSize)); 
     // console.log(`${locationX} ${locationY}`)
-    // appendRoomToLevel(newRoom, newLevel, locationX, locationY); 
+    appendRoomToLevel(newRoom, newLevel, locationX, locationY); 
 }
 
 // test animations 
@@ -36,3 +36,7 @@ waterElements.forEach(ele => {
     //animate
     animateElement(ele, waterKeyframes, waterAnimationOptions)
 })
+
+
+// 
+// find all tree elements 
