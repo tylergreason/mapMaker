@@ -8,10 +8,9 @@ fillWithGlyph(newLevel, water)
 
 
 // create patches of land (grass)
-for (let i = 0; i < 10; i++){
-
+for (let i = 0; i < 5; i++){
     // removing to see all water tiles 
-    let roomSize = Math.floor(Math.random()*10)+5; 
+    let roomSize = Math.floor(Math.random()*7)+1; 
     let newRoom = createRoom(tree, roomSize);
     let locationX = Math.floor(Math.random()*(newLevel.length-roomSize)); 
     let locationY = Math.floor(Math.random()*(newLevel[0].length-roomSize)); 
@@ -43,14 +42,18 @@ waterElements.forEach(ele => {
 const treeElements = [];
 newLevel.forEach((row, h) => {
     row.forEach((ele, w) => {
+        // make sure there's a next row below to check
         if (newLevel[h+1]){
-            console.log(newLevel[h+1][w])
-            if (ele.dataset.glyph === 'tree' &&  newLevel[h+1][w].dataset.glyph === 'water'){
-                console.log(ele)
+            if (ele.dataset.glyph === 'tree' 
+                &&  
+                newLevel[h+1][w].dataset.glyph === 'water'
+                && 
+                newLevel[h-1][w].dataset.glyph !== 'water'
+                ){
+                    // make this element a ridge element
+                // applyStyles(ridge, newLevel[h+1][w])
                 applyStyles(ridge, ele)
             }
         }
     })
 })
-
-// iterate through tree elements and find each element that has a water element below it
