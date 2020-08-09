@@ -13,7 +13,7 @@ let ridge = {
     text: "r", 
     styles: {
         color: "black", 
-        backgroundColor: "lightBrown",
+        backgroundColor: "rgb(187 170 49)",
     }
 }
 

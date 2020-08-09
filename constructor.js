@@ -43,15 +43,13 @@ waterElements.forEach(ele => {
 const treeElements = [];
 newLevel.forEach((row, h) => {
     row.forEach((ele, w) => {
-        console.log(newLevel[h][w])
-        if (ele.glyph === 'tree' &&  newLevel[h][w].glyph === 'tree'){
-            console.log(ele)
-            ele.innerText = 'djlafjs'
+        if (newLevel[h+1]){
+            console.log(newLevel[h+1][w])
+            if (ele.dataset.glyph === 'tree' &&  newLevel[h+1][w].dataset.glyph === 'water'){
+                console.log(ele)
+                applyStyles(ridge, ele)
+            }
         }
-
-        // if (ele.dataset.glyph === 'tree'){
-        //     treeElements.push(ele); 
-        // }
     })
 })
 
