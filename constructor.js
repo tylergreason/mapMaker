@@ -38,5 +38,21 @@ waterElements.forEach(ele => {
 })
 
 
-// 
-// find all tree elements 
+// functions to append ridge tiles to the bottom of tree tiles
+// Iterate through level and find 
+const treeElements = [];
+newLevel.forEach((row, h) => {
+    row.forEach((ele, w) => {
+        console.log(newLevel[h][w])
+        if (ele.glyph === 'tree' &&  newLevel[h][w].glyph === 'tree'){
+            console.log(ele)
+            ele.innerText = 'djlafjs'
+        }
+
+        // if (ele.dataset.glyph === 'tree'){
+        //     treeElements.push(ele); 
+        // }
+    })
+})
+
+// iterate through tree elements and find each element that has a water element below it
