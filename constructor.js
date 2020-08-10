@@ -41,8 +41,6 @@ waterElements.forEach((ele, index) => {
 
 
 // functions to append ridge tiles to the bottom of tree tiles
-// Iterate through level and find 
-const treeElements = [];
 newLevel.forEach((row, h) => {
     row.forEach((ele, w) => {
         // make sure there's a next row below to check
@@ -51,12 +49,12 @@ newLevel.forEach((row, h) => {
                 ele.dataset.glyph === 'tree' 
                 &&  
                 newLevel[h+1][w].dataset.glyph === 'water'
-                && 
-                newLevel[h-1][w].dataset.glyph !== 'water'
+                // && 
+                // newLevel[h-1][w].dataset.glyph !== 'water'
                 ){
                     // make the element below this element a ridge element
-                    // pause that element's animations 
-                    newLevel[h+1][w].getAnimations().splice(0)
+                    // cancel that element's animations 
+                    newLevel[h+1][w].getAnimations()[0].cancel()
                     applyStyles(ridge, newLevel[h+1][w])
                     // applyStyles(ridge, ele)
             }
