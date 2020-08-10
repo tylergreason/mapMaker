@@ -18,6 +18,6 @@ const applyStyles = (glyph, cell) => {
         cell.style[property] = styles[property]
     })
     // change cell inner text 
-    cell.innerText = glyph.text;
+    // cell.innerText = glyph.text;
     cell.dataset.glyph = glyph.name; 
 }

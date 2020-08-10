@@ -56,7 +56,6 @@ const appendRoomToLevel = (room, level, y, x) => {
             // console.log(cell)
             // let cell = level.children[h+y].children[x+w];
             let glyph = room[h][w]; 
-            cell.innerText = glyph.text
             applyStyles(glyph, cell); 
         }
     }

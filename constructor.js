@@ -1,6 +1,6 @@
 // this file runs functions to actually create the map 
 
-let newLevel = createLevel(25);
+let newLevel = createLevel(40);
 appendLevelToDoc(newLevel, map)
 
 // cover map in water 
@@ -8,9 +8,9 @@ fillWithGlyph(newLevel, water)
 
 
 // create patches of land (grass)
-for (let i = 0; i < 5; i++){
+for (let i = 0; i < 10; i++){
     // removing to see all water tiles 
-    let roomSize = Math.floor(Math.random()*7)+1; 
+    let roomSize = Math.floor(Math.random()*10)+3; 
     let newRoom = createRoom(tree, roomSize);
     let locationX = Math.floor(Math.random()*(newLevel.length-roomSize)); 
     let locationY = Math.floor(Math.random()*(newLevel[0].length-roomSize)); 
