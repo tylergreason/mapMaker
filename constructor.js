@@ -29,11 +29,14 @@ newLevel.forEach(row => {
 });
 
 // apply animations to water elements 
-waterElements.forEach(ele => {
+waterElements.forEach((ele, index) => {
     // create a random range for the duration of individual cell's animation 
     waterAnimationOptions.duration = randomDuration(4000,6000); 
+    // assign an id to the animation 
+
     //animate
-    animateElement(ele, waterKeyframes, waterAnimationOptions)
+    let waterAnimation = animateElement(ele, waterKeyframes, waterAnimationOptions)
+    waterAnimation.id = index; 
 })
 
 
@@ -44,15 +47,18 @@ newLevel.forEach((row, h) => {
     row.forEach((ele, w) => {
         // make sure there's a next row below to check
         if (newLevel[h+1]){
-            if (ele.dataset.glyph === 'tree' 
+            if (
+                ele.dataset.glyph === 'tree' 
                 &&  
                 newLevel[h+1][w].dataset.glyph === 'water'
                 && 
                 newLevel[h-1][w].dataset.glyph !== 'water'
                 ){
-                    // make this element a ridge element
-                // applyStyles(ridge, newLevel[h+1][w])
-                applyStyles(ridge, ele)
+                    // make the element below this element a ridge element
+                    // pause that element's animations 
+                    newLevel[h+1][w].getAnimations().splice(0)
+                    applyStyles(ridge, newLevel[h+1][w])
+                    // applyStyles(ridge, ele)
             }
         }
     })

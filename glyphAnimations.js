@@ -27,5 +27,5 @@ const waterAnimationOptions = {
 
 // function to animate targeted element 
 const animateElement = (element, animation, timing) =>{
-    element.animate(animation, timing); 
+    return element.animate(animation, timing); 
 }
