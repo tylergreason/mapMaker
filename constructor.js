@@ -35,8 +35,8 @@ waterElements.forEach((ele, index) => {
     // assign an id to the animation 
 
     //animate
-    let waterAnimation = animateElement(ele, waterKeyframes, waterAnimationOptions)
-    waterAnimation.id = index; 
+    // let waterAnimation = animateElement(ele, waterKeyframes, waterAnimationOptions)
+    // waterAnimation.id = index; 
 })
 
 
@@ -54,10 +54,31 @@ newLevel.forEach((row, h) => {
                 ){
                     // make the element below this element a ridge element
                     // cancel that element's animations 
-                    newLevel[h+1][w].getAnimations()[0].cancel()
+                    // newLevel[h+1][w].getAnimations()[0].cancel()
                     applyStyles(ridge, newLevel[h+1][w])
                     // applyStyles(ridge, ele)
             }
         }
     })
+})
+
+
+// create an instance of p5 to use its functions 
+let myP5 = new p5() 
+console.log(myP5.noise(400))
+
+let inc = 0.1; 
+// practicing implementing a type of noise 
+let yOff = 0; 
+newLevel.forEach(row => {
+    let xOff = 0; 
+    row.forEach(cell => {
+        // reset style 
+        cell.style = ""
+        let newNoise = myP5.noise(xOff, yOff) * 255; 
+        console.log(xOff, yOff, newNoise)
+        cell.style.backgroundColor = `rgb(${20},${newNoise},${newNoise})`
+        xOff += inc; 
+    })
+    yOff += inc;
 })
