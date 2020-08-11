@@ -43,3 +43,23 @@ const applyNoise = (level,inc) => {
         yOff += inc; 
     })
 }
+
+// functions to append ridge tiles to the bottom of tree tiles
+const applyRidge = (level, glyphToTarget) => {
+    level.forEach((row, h) => {
+        if (level[h+1]){
+            row.forEach((cell, w) => {
+                if (
+                    cell.dataset.glyph === glyphToTarget.name
+                    &&
+                    level[h+1][w].dataset.glyph === 'water'
+                ){
+                    // stop water cell's animation 
+                    level[h+1][w].getAnimations()[0].cancel()
+                    // make the element below this element a ridge element
+                    applyStyles(ridge, newLevel[h+1][w])
+                }
+            })
+        }
+    })
+}

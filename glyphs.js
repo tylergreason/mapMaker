@@ -7,7 +7,7 @@ let tree = {
         fontWeight: 'bold',
     },
     background: function(noise){
-        return `rgb(100, ${noise * 255}, 100)`
+        return `rgb(10, ${noise * 255}, 10)`
     }
 }
 
@@ -36,5 +36,8 @@ let water = {
         backgroundColor: 'lightblue', 
         color: 'blue',
         fontStyle: "italic"
+    }, 
+    background: function(noise){
+        return `rgb(10, 10, ${255 * noise})`
     }
 }

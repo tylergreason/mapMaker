@@ -4,7 +4,7 @@ let newLevel = createLevel(40);
 const map = document.getElementById('map');
 appendLevelToDoc(newLevel, map)
 // apply noise values to each cell for use in styling 
-applyNoise(newLevel, 0.8);
+applyNoise(newLevel, 0.2);
 
 // cover map in water 
 fillWithGlyph(newLevel, water)
@@ -42,25 +42,4 @@ waterElements.forEach((ele, index) => {
     // waterAnimation.id = index; 
 })
 
-
-// functions to append ridge tiles to the bottom of tree tiles
-newLevel.forEach((row, h) => {
-    row.forEach((ele, w) => {
-        // make sure there's a next row below to check
-        if (newLevel[h+1]){
-            if (
-                ele.dataset.glyph === 'tree' 
-                &&  
-                newLevel[h+1][w].dataset.glyph === 'water'
-                // && 
-                // newLevel[h-1][w].dataset.glyph !== 'water'
-                ){
-                    // make the element below this element a ridge element
-                    // cancel that element's animations 
-                    // newLevel[h+1][w].getAnimations()[0].cancel()
-                    applyStyles(ridge, newLevel[h+1][w])
-                    // applyStyles(ridge, ele)
-            }
-        }
-    })
-})
+applyRidge(newLevel, tree);
