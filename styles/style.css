@@ -4,25 +4,24 @@ body {
 
 #map {
   line-height: 1.2;
-  letter-spacing: 1.2em;
 }
 
 .cell {
-  width: 10px;
-  height: 10px;
+  width: 30px;
+  height: 30px;
   display: inline-block;
   text-align: center;
   vertical-align: middle;
-  margin: 0px;
+  margin: auto;
   padding: 0px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-size: 8px;
+  font-size: 24px;
 }
 
 .row {
   margin: 0px;
   padding: 0px;
-  height: 10px;
+  height: 30px;
 }
 /*# sourceMappingURL=style.css.map */

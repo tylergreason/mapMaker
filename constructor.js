@@ -67,7 +67,7 @@ newLevel.forEach((row, h) => {
 let myP5 = new p5() 
 console.log(myP5.noise(400))
 
-let inc = 0.1; 
+let inc = 0.07; 
 // practicing implementing a type of noise 
 let yOff = 0; 
 newLevel.forEach(row => {
@@ -78,6 +78,8 @@ newLevel.forEach(row => {
         let newNoise = myP5.noise(xOff, yOff) * 255; 
         console.log(xOff, yOff, newNoise)
         cell.style.backgroundColor = `rgb(${20},${newNoise},${newNoise})`
+        let cellText = newNoise.toString()
+        cell.innerText = cellText.slice(0,2);
         xOff += inc; 
     })
     yOff += inc;
