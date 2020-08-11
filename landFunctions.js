@@ -55,7 +55,9 @@ const applyRidge = (level, glyphToTarget) => {
                     level[h+1][w].dataset.glyph === 'water'
                 ){
                     // stop water cell's animation 
-                    level[h+1][w].getAnimations()[0].cancel()
+                    if (level[h+1][w].getAnimations()[0]){
+                        level[h+1][w].getAnimations()[0].cancel()
+                    }
                     // make the element below this element a ridge element
                     applyStyles(ridge, newLevel[h+1][w])
                 }
