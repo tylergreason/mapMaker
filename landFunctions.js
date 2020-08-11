@@ -19,5 +19,27 @@ const applyStyles = (glyph, cell) => {
     })
     // change cell inner text 
     // cell.innerText = glyph.text;
+
+    // if cell has background function that uses noise, apply that 
+    if (glyph.background){
+        cell.style.backgroundColor = glyph.background(cell.dataset.noise);
+    }
     cell.dataset.glyph = glyph.name; 
+}
+
+// function to apply noise values to level 
+const applyNoise = (level,inc) => {
+    // iterate over level and store noise value in that element's dataset 
+    // inc is by how much the xOff and yOff will increment upwards and determins how radical changes are
+    let yOff = 0; 
+    level.forEach(row => {
+        xOff = 0; 
+        row.forEach(cell => {
+            // create noise value using P5JS 
+            const newNoise = P5.noise(xOff, yOff); 
+            cell.dataset.noise = newNoise.toString(); 
+            xOff += inc; 
+        })
+        yOff += inc; 
+    })
 }

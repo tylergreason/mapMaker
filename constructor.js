@@ -1,7 +1,10 @@
 // this file runs functions to actually create the map 
 
 let newLevel = createLevel(40);
+const map = document.getElementById('map');
 appendLevelToDoc(newLevel, map)
+// apply noise values to each cell for use in styling 
+applyNoise(newLevel, 0.8);
 
 // cover map in water 
 fillWithGlyph(newLevel, water)
@@ -24,7 +27,7 @@ for (let i = 0; i < 10; i++){
 let waterElements = []; 
 newLevel.forEach(row => {
     row.forEach(ele => {
-        if (ele.dataset.glyph  === 'water') {waterElements.push(ele); }
+        if (ele.dataset.glyph  === 'water') { waterElements.push(ele); }
     })
 });
 
@@ -61,43 +64,3 @@ newLevel.forEach((row, h) => {
         }
     })
 })
-
-
-// create an instance of p5 to use its functions 
-let P5 = new p5() 
-
-let inc = 0.07; 
-// practicing implementing a type of noise 
-let yOff = 0; 
-newLevel.forEach(row => {
-    let xOff = 0; 
-    row.forEach(cell => {
-        // reset style 
-        cell.style = ""
-        let newNoise = P5.noise(xOff, yOff) * 255; 
-        console.log(xOff, yOff, newNoise)
-        cell.style.backgroundColor = `rgb(${newNoise},${newNoise},${newNoise})`
-        let cellText = (newNoise).toString()
-        cell.innerText = cellText.slice(0,cellText.indexOf('.'));
-        xOff += inc; 
-    })
-    yOff += inc;
-})
-
-// function to apply noise values to level 
-const applyNoise = (level,inc) => {
-    // iterate over level and store noise value in that element's dataset 
-    // inc is by how much the xOff and yOff will increment upwards and determins how radical changes are
-    let yOff = 0; 
-    level.forEach(row => {
-        xOff = 0; 
-        row.forEach(cell => {
-            // create noise value using P5JS 
-            const newNoise = P5.noise(xOff, yOff); 
-            console.log(newNoise)
-            cell.dataset.noise = newNoise.toString(); 
-            xOff += inc; 
-        })
-        yOff += inc; 
-    })
-}

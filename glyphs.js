@@ -3,8 +3,11 @@ let tree = {
     text: "t",
     styles: {
         color: 'lightgreen', 
-        backgroundColor: 'green', 
+        // backgroundColor: 'green', 
         fontWeight: 'bold',
+    },
+    background: function(noise){
+        return `rgb(100, ${noise * 255}, 100)`
     }
 }
 
