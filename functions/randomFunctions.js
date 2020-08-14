@@ -8,7 +8,5 @@ const dx = (sides, quantity=1) => {
 }
 
 const randomMapHeight = () => {
-    const h = Math.floor(Math.random()*mapHeight);
-    console.log(h);
-    return h 
+    return Math.floor(Math.random()*mapHeight);
 }
