@@ -2,17 +2,13 @@
 const cloudSpeed = 10;  
 const cloudSize = 5; 
 
-const mapHeight = document.getElementById('map').clientHeight; 
-const mapWidth = document.getElementById('map').clientWidth;
 const generateCloud = (appendTo) => {
     // get height and width from appendTo element 
-    const appendToHeight = appendTo.clientHeight; 
-    const appendToWidth = appendTo.clientWidth; 
     let ele = document.createElement('div'); 
     applyStyles(cloud, ele); 
-    cloudStyles(ele, appendToHeight, appendToWidth); 
+    cloudStyles(ele, mapHeight, mapWidth); 
     appendTo.appendChild(ele); 
-    cloudAnimation(ele, appendToHeight, appendToWidth); 
+    cloudAnimation(ele, mapHeight, mapWidth); 
 }
 
 const cloudStyles = (cloud, height, width) => {
@@ -38,8 +34,8 @@ const generateCloudKeyframes = (width) => {
 }
 
 const cloudAnimationOptions = {
-    duration: 5000, 
-    fill: 'forwards'
+    duration: 1000, 
+    // fill: 'forwards'
 }
 
 const cloudAnimation = (cloud, height, width) => {

@@ -1,8 +1,17 @@
 // this file runs functions to actually create the map 
-
-let newLevel = createLevel(40);
+const levelWidth = 40 //number of tiles wide 
+const levelHeight = levelWidth;
+let newLevel = createLevel(levelHeight);
+// document.getElementsByClassName('row')[0].children[0].clientWidth
 const map = document.getElementById('map');
 appendLevelToDoc(newLevel, map)
+
+// set width and height variables based on cell width 
+const cellHeight = document.getElementsByClassName('cell')[0].clientHeight; 
+const cellWidth = document.getElementsByClassName('cell')[0].clientWidth; 
+// find map's width and height 
+const mapHeight = levelHeight * cellHeight; 
+const mapWidth = levelWidth * cellWidth; 
 // apply noise values to each cell for use in styling 
 applyNoise(newLevel, 0.2);
 

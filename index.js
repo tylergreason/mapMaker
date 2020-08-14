@@ -3,9 +3,9 @@ window.onload = () => {
     const mapHeight = document.getElementById('map').clientHeight; 
     const mapWidth = document.getElementById('map').clientWidth;
 }
-let P5 = new p5() 
 
 // create an instance of p5 to use its functions 
+let P5 = new p5() 
 
 // create function to create x by y room 
 const createRoom = (glyph, height, width=height) => {
