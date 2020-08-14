@@ -8,7 +8,7 @@ const generateCloud = (appendTo) => {
     applyStyles(cloud, ele); 
     cloudStyles(ele, mapHeight, mapWidth); 
     appendTo.appendChild(ele); 
-    cloudAnimation(ele, mapHeight, mapWidth); 
+    animateCloud(ele, mapHeight, mapWidth); 
 }
 
 const cloudStyles = (cloud, height, width) => {
@@ -21,14 +21,17 @@ const cloudStyles = (cloud, height, width) => {
     cloud.style.left = '0px';
 }
 
-const generateCloudKeyframes = (width) => {
-    // need the element being appended to to calculate the width
+const generateCloudKeyframes = (height,width) => {
+    let randomHeight = Math.floor(Math.random()*height);
+    let randomWidth = Math.floor(Math.random()*width);
         return [
             {
-                left: '0px'
+                left: '0px',
+                top: `${randomHeight}px`
             },
             {
-                left: `${width}px`
+                left: `${width}px`,
+                top: `${randomHeight}px`
             }
         ]
 }
@@ -38,6 +41,11 @@ const cloudAnimationOptions = {
     // fill: 'forwards'
 }
 
-const cloudAnimation = (cloud, height, width) => {
-    cloud.animate(generateCloudKeyframes(width), cloudAnimationOptions)
+const animateCloud = (cloud, height, width) => {
+    let cloudAnimation = cloud.animate(generateCloudKeyframes(height, width), cloudAnimationOptions); 
+    // loop animation when finished
+    cloudAnimation.onfinish = e => {
+        console.log(e)
+        animateCloud(cloud, randomMapHeight(), width);
+    }
 }

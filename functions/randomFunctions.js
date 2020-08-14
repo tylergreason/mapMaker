@@ -6,3 +6,9 @@ const dx = (sides, quantity=1) => {
     console.log(total)
     return total;
 }
+
+const randomMapHeight = () => {
+    const h = Math.floor(Math.random()*mapHeight);
+    console.log(h);
+    return h 
+}
