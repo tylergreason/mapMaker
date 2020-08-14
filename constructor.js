@@ -43,3 +43,4 @@ waterElements.forEach((ele, index) => {
 })
 
 applyRidge(newLevel, tree);
+generateCloud(map)
