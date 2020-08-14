@@ -41,3 +41,12 @@ let water = {
         return `rgb(10, 10, ${255 * noise})`
     }
 }
+
+let cloud = {
+    name: "cloud", 
+    text: "",
+    styles: {
+        backgroundColor: 'white', 
+        // set width with cloud generator function 
+    }
+}
