@@ -33,7 +33,7 @@ const cloudStyles = (cloud, height, width) => {
     // set height & starting width
     cloud.style.top = Math.floor(Math.random()*height) + 'px';
     // cloud.style.left = Math.floor(Math.random()*width) + 'px';
-    cloud.style.left = '200px';
+    cloud.style.left = '-200px';
 }
 
 const generateCloudKeyframes = (height,width) => {
