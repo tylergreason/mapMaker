@@ -15,7 +15,7 @@ const cloudStyles = (cloud, height, width) => {
     cloud.style.width = Math.random()*cloudSize + 'px'; 
     cloud.style.height = Math.random()*cloudSize + 'px'; 
     cloud.style.position = "absolute"; 
-    cloud.style.opacity = (Math.random()*0.3)+0.7;
+    cloud.style.opacity = (Math.random()*0.3)+0.5;
     // set height & starting width
     cloud.style.top = Math.floor(Math.random()*height) + 'px';
     // cloud.style.left = Math.floor(Math.random()*width) + 'px';
