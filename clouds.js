@@ -26,21 +26,21 @@ const generateCloudKeyframes = (height,width) => {
     let randomAngle = Math.floor(Math.random()*360); 
         return [
             {
-                left: '0px',
+                left: '-200px',
                 top: `${height}px`,
-                // transform: `rotate(${randomAngle}deg)`,
+                transform: `rotate(${randomAngle}deg)`,
             },
             {
-                left: `${width}px`,
+                left: `${width + 200}px`,
                 top: `${height}px`,
-                // transform: 'rotate(90deg)'
+                transform: `rotate(${randomInRange(randomAngle,0.1)}deg)`
             }
         ]
 }
 
 const cloudAnimationOptions = () => {
     return {
-        duration: randomInRange(10000,0.1), 
+        duration: randomInRange(10000,0.2), 
         // fill: 'forwards'
     }
 }
@@ -54,7 +54,7 @@ const animateCloud = (cloud, height, width) => {
     cloudAnimation.onfinish = e => {
         // console.log(e)
         // debugger
-        animateCloud(cloud, randomMapHeight(), width);
-        // cloudAnimation.play();
+        // animateCloud(cloud, randomMapHeight(), width);
+        cloudAnimation.play();
     }
 }
