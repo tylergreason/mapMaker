@@ -16,10 +16,11 @@ const cloudStyles = (cloud, height, width) => {
     cloud.style.height = Math.random()*cloudSize + 'px'; 
     cloud.style.position = "absolute"; 
     cloud.style.opacity = (Math.random()*0.3)+0.5;
+    cloud.style.borderRadius = '10px'
     // set height & starting width
     cloud.style.top = Math.floor(Math.random()*height) + 'px';
     // cloud.style.left = Math.floor(Math.random()*width) + 'px';
-    cloud.style.left = '0px';
+    cloud.style.left = '-200px';
 }
 
 const generateCloudKeyframes = (height,width) => {
@@ -40,7 +41,9 @@ const generateCloudKeyframes = (height,width) => {
 
 const cloudAnimationOptions = () => {
     return {
-        duration: randomInRange(10000,0.2), 
+        duration: randomInRange(20000,0.2), 
+        // random x second delay
+        delay: Math.random()*5000,
         // fill: 'forwards'
     }
 }
