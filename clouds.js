@@ -11,16 +11,29 @@ const generateCloud = (appendTo) => {
     animateCloud(ele, randomMapHeight(), mapWidth); 
 }
 
+// function to ensure clouds are always wider than they are tall 
+const cloudDimensions = () => {
+    let num1 = randomInRange(cloudSize, 0.7); 
+    let num2 = randomInRange(cloudSize, 0.7); 
+    if (num1 > num2){
+        return [num1 + 'px', num2 + 'px']
+    }else{
+        return [num2 + 'px', num1 + 'px']
+    }
+}
+
 const cloudStyles = (cloud, height, width) => {
-    cloud.style.width = Math.random()*cloudSize + 'px'; 
-    cloud.style.height = Math.random()*cloudSize + 'px'; 
+    // set dimensions
+    [cloud.style.width, cloud.style.height] = cloudDimensions()
+    // make sure clouds are wider than they are tall 
+    console.log(cloud.style.width);
     cloud.style.position = "absolute"; 
     cloud.style.opacity = (Math.random()*0.3)+0.5;
     cloud.style.borderRadius = '10px'
     // set height & starting width
     cloud.style.top = Math.floor(Math.random()*height) + 'px';
     // cloud.style.left = Math.floor(Math.random()*width) + 'px';
-    cloud.style.left = '-200px';
+    cloud.style.left = '200px';
 }
 
 const generateCloudKeyframes = (height,width) => {
@@ -29,12 +42,12 @@ const generateCloudKeyframes = (height,width) => {
             {
                 left: '-200px',
                 top: `${height}px`,
-                transform: `rotate(${randomAngle}deg)`,
+                // transform: `rotate(${randomAngle}deg)`,
             },
             {
                 left: `${width + 200}px`,
                 top: `${height}px`,
-                transform: `rotate(${randomInRange(randomAngle,0.1)}deg)`
+                // transform: `rotate(${randomInRange(randomAngle,0.1)}deg)`
             }
         ]
 }
