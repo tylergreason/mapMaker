@@ -11,18 +11,25 @@ const fillWithGlyph = (level, glyph) => {
 // apply glyph style to cell div 
 const applyStyles = (glyph, cell) => {
     let styles = glyph.styles; 
+    // make this function work for arguments of either a level coordinate or an element itself 
+    let elementToStyle; 
+    if (cell.element){
+        elementToStyle = cell.element; 
+    }else{
+        elementToStyle = cell; 
+    }
     //remove old inline styles 
-    cell.element.style = "";
+    elementToStyle.style = "";
     // iterate through styles and apply them to cell style 
     Object.keys(styles).forEach(property => {
-        cell.element.style[property] = styles[property]
+        elementToStyle.style[property] = styles[property]
     })
     // change cell inner text 
     // cell.innerText = glyph.text;
 
     // if cell has background function that uses noise, apply that 
     if (glyph.background){
-        cell.element.style.backgroundColor = glyph.background(cell.noise);
+        elementToStyle.style.backgroundColor = glyph.background(cell.noise);
     }
     cell.glyph = glyph.name; 
 }
