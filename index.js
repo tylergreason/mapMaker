@@ -45,9 +45,12 @@ const createLevel = (height, width=height) => {
         // let row = document.createElement('div'); 
         // row.classList.add('row')
         for (let j = 0; j < width; j++){
+            // create element ('cell'), then put that in an object in the level
             let cell = document.createElement('div'); 
             cell.classList.add('cell');
-            row.push(cell); 
+            row.push({
+                element: cell
+            }); 
         }
         level.push(row); 
     }
