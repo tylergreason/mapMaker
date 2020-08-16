@@ -12,11 +12,6 @@ const waterKeyframes = [
     }
 ]
 
-// function to make a random time within a range for an animation duration
-const randomDuration = (minimum, maximum) => {
-    return (Math.random()* (maximum - minimum)) + minimum
-}
-
 
 const waterAnimationOptions = { 
     iterations: Infinity, 
