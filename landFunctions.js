@@ -22,9 +22,9 @@ const applyStyles = (glyph, cell) => {
 
     // if cell has background function that uses noise, apply that 
     if (glyph.background){
-        cell.style.backgroundColor = glyph.background(cell.dataset.noise);
+        cell.style.backgroundColor = glyph.background(cell.noise);
     }
-    cell.dataset.glyph = glyph.name; 
+    cell.glyph = glyph.name; 
 }
 
 // function to apply noise values to level 
@@ -37,7 +37,7 @@ const applyNoise = (level,inc) => {
         row.forEach(cell => {
             // create noise value using P5JS 
             const newNoise = P5.noise(xOff, yOff); 
-            cell.dataset.noise = newNoise.toString(); 
+            cell.noise = newNoise.toString(); 
             xOff += inc; 
         })
         yOff += inc; 
@@ -50,12 +50,12 @@ const applyRidge = (level, glyphToTarget) => {
         if (level[h+1]){
             row.forEach((cell, w) => {
                 if (
-                    cell.dataset.glyph === glyphToTarget.name
+                    cell.glyph === glyphToTarget.name
                     &&
-                    level[h+1][w].dataset.glyph === 'water'
+                    level[h+1][w].glyph === 'water'
                 ){
                     // stop water cell's animation 
-                    if (level[h+1][w].getAnimations()[0]){
+                    if (level[h+1][w].element.getAnimations()[0]){
                         level[h+1][w].getAnimations()[0].cancel()
                     }
                     // make the element below this element a ridge element

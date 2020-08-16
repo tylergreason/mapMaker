@@ -36,7 +36,7 @@ for (let i = 0; i < 10; i++){
 let waterElements = []; 
 newLevel.forEach(row => {
     row.forEach(ele => {
-        if (ele.dataset.glyph  === 'water') { waterElements.push(ele); }
+        if (ele.glyph  === 'water') { waterElements.push(ele); }
     })
 });
 

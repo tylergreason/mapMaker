@@ -65,7 +65,7 @@ const appendLevelToDoc = (level, target) => {
         let row = document.createElement('div');
         row.classList.add('row')
         levelRow.forEach(cell => {
-            row.appendChild(cell); 
+            row.appendChild(cell.element); 
         })
         // append row to target 
         target.appendChild(row); 
