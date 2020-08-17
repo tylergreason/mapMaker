@@ -11,6 +11,10 @@ const randomMapHeight = () => {
     return Math.floor(Math.random()*mapHeight);
 }
 
+const randomBetweenNumbers = (low, high) => {
+    return Math.floor(Math.random()*high)+low; 
+}
+
 // return a number within a certain +/- percent range
 const randomInRange = (num, rangePercent) => {
     //find amount of num to find random part of 

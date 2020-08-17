@@ -44,7 +44,7 @@ const applyNoise = (level,inc) => {
         row.forEach(cell => {
             // create noise value using P5JS 
             const newNoise = P5.noise(xOff, yOff); 
-            cell.noise = newNoise.toString(); 
+            cell.noise = newNoise; 
             xOff += inc; 
         })
         yOff += inc; 

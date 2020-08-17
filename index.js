@@ -49,7 +49,9 @@ const createLevel = (height, width=height) => {
             let cell = document.createElement('div'); 
             cell.classList.add('cell');
             row.push({
-                element: cell
+                element: cell,
+                x: j, 
+                y: i,
             }); 
         }
         level.push(row); 

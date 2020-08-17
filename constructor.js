@@ -18,9 +18,18 @@ applyNoise(newLevel, 0.2);
 // cover map in water 
 fillWithGlyph(newLevel, water)
 
+// create copy of newLevel sorted by noise 
+// leaving this here to work on later: need to sort entire level into one array 
+// Use merge sort to sort arrays https://khan4019.github.io/front-end-Interview-Questions/sort.html#mergeSort
+const noiseMap = [...newLevel];
+noiseMap.sort((a,b) => {
+    a.noise - b.noise
+})
+
 
 // create patches of land (grass)
-for (let i = 0; i < 10; i++){
+const randomLandNumber = randomBetweenNumbers(5,15); 
+for (let i = 0; i < randomLandNumber; i++){
     // removing to see all water tiles 
     let roomSize = Math.floor(Math.random()*10)+3; 
     let newRoom = createRoom(tree, roomSize);
@@ -51,9 +60,9 @@ waterElements.forEach((ele, index) => {
     // waterAnimation.id = index; 
 })
 
+// apply ridges and generate some clouds 
 applyRidge(newLevel, tree);
-generateCloud(map)
-generateCloud(map)
-generateCloud(map)
-generateCloud(map)
-generateCloud(map)
+const randomCloudNumber = randomBetweenNumbers(3,7); 
+for (let i = 0; i < randomCloudNumber; i++){
+    generateCloud(map)
+}
