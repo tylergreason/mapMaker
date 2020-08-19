@@ -38,7 +38,7 @@ let water = {
         fontStyle: "italic"
     }, 
     background: function(noise){
-        return `rgb(10, 10, ${255 * noise})`
+        return `rgb(40, ${80 * noise}, ${255 * noise})`
     }
 }
 
