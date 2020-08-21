@@ -19,5 +19,5 @@ The array's elements are appended to the #map element in the HTML document.
 
 (Finish this later) 
 
-To Do: 
+## To Do: 
 - Change glyphs to be stored in an object with property names that are the same as the glyph names. Then, in the level's cells, have their glyph property be the name of the glyph and point it to the object that holds all the glyphs. This will save space in the level array. 
