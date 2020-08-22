@@ -15,7 +15,7 @@ Right now I'm generating a two dimensional array, called a "level". Each cell of
 - A glyph, which holds the style properties for this cell's element. 
 - A noise number (see Perlin Noise below). 
 
-The array's elements are appended to the #map element in the HTML document. 
+The array's elements are appended to a row element, and when a new row needs made, that row is appended to the #map element. 
 
 (Finish this later) 
 
