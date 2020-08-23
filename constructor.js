@@ -81,9 +81,10 @@ newLevel.forEach(row => {
     row.forEach(cell => {
         // console.log(cell.element.style);
         if (cell.noise < 0.5){
-            cell.element.style.backgroundColor = 'rgb(0,0,100)'
+            cell.element.style.backgroundColor = `rgb(0,0,${250 * (cell.noise * 2)})`
         }else{
-            cell.element.style.backgroundColor = 'rgb(50,100,0)'
+            // cell.element.style.backgroundColor = `rgb(0,${250 * (1-cell.noise * 2)},0)`
+            cell.element.style.backgroundColor = `rgb(0,${250 * (cell.noise)},0)`
         }
     })
 })
