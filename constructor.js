@@ -75,3 +75,15 @@ const showNoise = level => {
     })
   })
 }
+
+// test making the land and water dependent on the cell's noise value 
+newLevel.forEach(row => {
+    row.forEach(cell => {
+        // console.log(cell.element.style);
+        if (cell.noise < 0.5){
+            cell.element.style.backgroundColor = 'rgb(0,0,100)'
+        }else{
+            cell.element.style.backgroundColor = 'rgb(50,100,0)'
+        }
+    })
+})
