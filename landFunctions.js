@@ -64,7 +64,7 @@ const applyNoise = (level,inc) => {
             //                     + (0.1 * P5.noise(4*xOff, 4*yOff))
             //                     )
                 cell.noise = newNoise; 
-                // cell.noise = terraces(newNoise, 4); 
+                // cell.noise = terraces(newNoise, 10); 
             xOff += inc 
         })
         yOff += inc; 
@@ -98,8 +98,8 @@ const applyRidge = (level, glyphToTarget) => {
 const terraces = (noise, levels) => {
     // take a noise value and see which of the levels it applies to,
     // then return a new value accordingly. 
-    for (let i = levels; i > 0; i--){
-        if (noise <= 1/i){
+    for (let i = 0; i < levels; i++){
+        if (noise >= 1/i){
             return (1/levels)*i; 
         }
     }
