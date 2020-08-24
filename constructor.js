@@ -1,5 +1,5 @@
 // this file runs functions to actually create the map
-const levelWidth = 40 //number of tiles wide
+const levelWidth = 100 //number of tiles wide
 const levelHeight = levelWidth;
 let newLevel = createLevel(levelHeight);
 // document.getElementsByClassName('row')[0].children[0].clientWidth
@@ -13,7 +13,7 @@ const cellWidth = document.getElementsByClassName('cell')[0].clientWidth;
 const mapHeight = levelHeight * cellHeight;
 const mapWidth = levelWidth * cellWidth;
 // apply noise values to each cell for use in styling
-applyNoise(newLevel, 0.2);
+applyNoise(newLevel, 0.1);
 
 // cover map in water
 fillWithGlyph(newLevel, water)
@@ -80,6 +80,7 @@ const showNoise = level => {
 newLevel.forEach(row => {
     row.forEach(cell => {
         // console.log(cell.element.style);
+        cell.element.style.backgroundColor = `rgb(0,${250 * (cell.noise)},0)`
         if (cell.noise < 0.5){
             cell.element.style.backgroundColor = `rgb(0,0,${250 * (cell.noise * 2)})`
         }else{
