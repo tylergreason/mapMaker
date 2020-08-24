@@ -37,7 +37,8 @@ for (let i = 0; i < randomLandNumber; i++){
     let locationX = Math.floor(Math.random()*(newLevel.length-roomSize));
     let locationY = Math.floor(Math.random()*(newLevel[0].length-roomSize));
     // console.log(`${locationX} ${locationY}`)
-    appendRoomToLevel(newRoom, newLevel, locationX, locationY);
+    // turning this off because it's no longer being used 
+    // appendRoomToLevel(newRoom, newLevel, locationX, locationY);
 }
 
 // test animations
@@ -62,7 +63,9 @@ for (let i = 0; i < randomLandNumber; i++){
 // })
 
 // apply ridges and generate some clouds
-applyRidge(newLevel, tree);
+// applyRidge(newLevel, tree);
+
+
 const randomCloudNumber = randomBetweenNumbers(3,7);
 for (let i = 0; i < randomCloudNumber; i++){
     // turn off clouds for now 
@@ -73,9 +76,11 @@ for (let i = 0; i < randomCloudNumber; i++){
 newLevel.forEach(row => {
     row.forEach(cell => {
         // console.log(cell.element.style);
-        if (cell.noise < 0.49){
+        if (cell.noise < 0.5){
             cell.element.style.backgroundColor = `rgb(0,0,${250 * (cell.noise * 2)})`
-        }else{
+        }else if (cell.noise > 0.5 && cell.noise < 0.55){
+            cell.element.style.backgroundColor = `#e2d9bc`
+        }else {
             // cell.element.style.backgroundColor = `rgb(0,${250 * (1-cell.noise * 2)},0)`
             cell.element.style.backgroundColor = `rgb(0,${250 * (cell.noise)},0)`
         }

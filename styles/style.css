@@ -7,8 +7,8 @@ body {
 }
 
 .cell {
-  width: 10px;
-  height: 10px;
+  width: 5px;
+  height: 5px;
   display: inline-block;
   text-align: center;
   vertical-align: middle;
@@ -16,13 +16,13 @@ body {
   padding: 0px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-size: 8px;
+  font-size: 4px;
   font-size: 0.8em;
 }
 
 .row {
   margin: 0px;
   padding: 0px;
-  height: 10px;
+  height: 5px;
 }
 /*# sourceMappingURL=style.css.map */
