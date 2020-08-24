@@ -8,6 +8,16 @@ const fillWithGlyph = (level, glyph) => {
     })
 }
 
+// function to make the inner text of each element in the level the perlin noise of that cell
+const showNoise = level => {
+    level.forEach(row => {
+    row.forEach(cell => {
+        cell.element.innerText = cell.noise;
+    })
+    })
+}
+
+
 // apply glyph style to cell div 
 const applyStyles = (glyph, cell) => {
     let styles = glyph.styles; 
@@ -48,7 +58,8 @@ const applyNoise = (level,inc) => {
                                 + (0.2 * P5.noise(2*xOff, 2*yOff))
                                 + (0.1 * P5.noise(4*xOff, 4*yOff))
                                 )
-            cell.noise = newNoise; 
+                cell.noise = newNoise; 
+                cell.noise = terraces(newNoise, 4); 
             xOff += inc 
         })
         yOff += inc; 
@@ -75,4 +86,16 @@ const applyRidge = (level, glyphToTarget) => {
             })
         }
     })
+}
+
+// function to make terraces according to the article below 
+// https://www.redblobgames.com/maps/terrain-from-noise/#terraces
+const terraces = (noise, levels) => {
+    // take a noise value and see which of the levels it applies to,
+    // then return a new value accordingly. 
+    for (let i = levels; i > 0; i--){
+        if (noise <= 1/i){
+            return (1/levels)*i; 
+        }
+    }
 }
